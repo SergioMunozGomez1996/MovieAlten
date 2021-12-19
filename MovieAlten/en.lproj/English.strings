@@ -1,0 +1,14 @@
+/* 
+  English.strings
+  MovieAlten
+
+  Created by Sergio Muñoz on 19/12/21.
+  
+*/
+
+"title" = "title";
+"released" = "Released";
+"runtime" = "Runtime";
+"genre" = "Genre";
+"plot" = "Plot";
+"web" = "Web";
