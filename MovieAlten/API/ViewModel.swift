@@ -39,7 +39,9 @@ class ViewModel : ObservableObject {
     
     func getMoviesByTitle(title: String, _ completion: @escaping (() -> Void)){
         self.movies.removeAll()
-        AF.request("\(Constants.DOMAIN)?s=\(title)&apikey=\(Constants.API_KEY)").responseDecodable(of: MoviesResponse.self){ response in
+        self.error = ""
+        let formattedTitle = title.replacingOccurrences(of: " ", with: "%20")
+        AF.request("\(Constants.DOMAIN)?s=\(formattedTitle)&apikey=\(Constants.API_KEY)").responseDecodable(of: MoviesResponse.self){ response in
             
             print("Response: \(response)")
             switch response.result {
@@ -56,6 +58,7 @@ class ViewModel : ObservableObject {
     
     func getMovie(id: String, _ completion: @escaping (() -> Void)){
         self.movie = nil
+        self.error = ""
         AF.request("\(Constants.DOMAIN)?i=\(id)&apikey=\(Constants.API_KEY)").responseDecodable(of: MovieData.self){ response in
             
             print("Response: \(response)")

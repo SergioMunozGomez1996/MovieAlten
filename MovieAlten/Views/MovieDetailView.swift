@@ -11,6 +11,9 @@ struct MovieDetailView: View {
     
     @EnvironmentObject var viewModel : ViewModel
     
+    @State private var isPresented = false
+    @State var image : Image?
+    
     var movieId : String
 
     var movie : MovieData?
@@ -39,7 +42,10 @@ struct MovieDetailView: View {
                         } placeholder: {
                             Color.red
                         }
-                        Spacer().frame(height: 3)
+                        .onTapGesture {
+                            isPresented.toggle()
+                        }
+                        Spacer().frame(height: 5)
                         
                         Group{
                             Text(LocalizedStringKey("title"))
@@ -145,6 +151,9 @@ struct MovieDetailView: View {
                         Spacer()
                     }
                     .padding()
+                    .fullScreenCover(isPresented: $isPresented, content: {
+                        FullScreenModalView(imageURL: viewModel.movie?.poster ?? "")
+                    })
                 }
             case .error:
                 Text(viewModel.error)
@@ -168,6 +177,7 @@ struct MovieDetailView: View {
                 
             }
         }
+        
         
     }
     

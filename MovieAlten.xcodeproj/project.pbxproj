@@ -14,11 +14,13 @@
 		422598F8276F9504007B3424 /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422598F7276F9504007B3424 /* MovieData.swift */; };
 		422598FA276F9AAB007B3424 /* MovieRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422598F9276F9AAB007B3424 /* MovieRow.swift */; };
 		422598FC276FA402007B3424 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422598FB276FA402007B3424 /* MovieDetailView.swift */; };
-		422598FF276FA835007B3424 /* English.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42259901276FA835007B3424 /* English.strings */; };
+		422598FF276FA835007B3424 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42259901276FA835007B3424 /* Localizable.strings */; };
 		42259904276FC3D9007B3424 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42259903276FC3D9007B3424 /* Alamofire */; };
 		42259907276FC576007B3424 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42259906276FC576007B3424 /* ViewModel.swift */; };
 		4225990B276FE073007B3424 /* MoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4225990A276FE073007B3424 /* MoviesResponse.swift */; };
 		4225990D276FEF0E007B3424 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4225990C276FEF0E007B3424 /* Constants.swift */; };
+		4247CEDA2770E94300C41CBD /* FullScreenModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247CED92770E94300C41CBD /* FullScreenModalView.swift */; };
+		4247CEDD2770F07500C41CBD /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247CEDC2770F07500C41CBD /* ImageSaver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,11 +32,14 @@
 		422598F7276F9504007B3424 /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		422598F9276F9AAB007B3424 /* MovieRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRow.swift; sourceTree = "<group>"; };
 		422598FB276FA402007B3424 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
-		42259900276FA835007B3424 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/English.strings; sourceTree = "<group>"; };
+		42259900276FA835007B3424 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		42259906276FC576007B3424 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		42259908276FDB18007B3424 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4225990A276FE073007B3424 /* MoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesResponse.swift; sourceTree = "<group>"; };
 		4225990C276FEF0E007B3424 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4247CED92770E94300C41CBD /* FullScreenModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenModalView.swift; sourceTree = "<group>"; };
+		4247CEDC2770F07500C41CBD /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
+		4247CEDF2771046F00C41CBD /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +73,7 @@
 		422598E6276F8A4E007B3424 /* MovieAlten */ = {
 			isa = PBXGroup;
 			children = (
+				4247CEDB2770F06800C41CBD /* Utils */,
 				42259908276FDB18007B3424 /* Info.plist */,
 				42259905276FC55A007B3424 /* API */,
 				422598F6276F8E39007B3424 /* Data */,
@@ -75,8 +81,7 @@
 				422598E7276F8A4E007B3424 /* MovieAltenApp.swift */,
 				422598EB276F8A50007B3424 /* Assets.xcassets */,
 				422598ED276F8A50007B3424 /* Preview Content */,
-				42259901276FA835007B3424 /* English.strings */,
-				4225990C276FEF0E007B3424 /* Constants.swift */,
+				42259901276FA835007B3424 /* Localizable.strings */,
 			);
 			path = MovieAlten;
 			sourceTree = "<group>";
@@ -95,6 +100,7 @@
 				422598E9276F8A4E007B3424 /* MoviesListView.swift */,
 				422598F9276F9AAB007B3424 /* MovieRow.swift */,
 				422598FB276FA402007B3424 /* MovieDetailView.swift */,
+				4247CED92770E94300C41CBD /* FullScreenModalView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -102,6 +108,7 @@
 		422598F6276F8E39007B3424 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				4225990C276FEF0E007B3424 /* Constants.swift */,
 				422598F7276F9504007B3424 /* MovieData.swift */,
 			);
 			path = Data;
@@ -122,6 +129,14 @@
 				4225990A276FE073007B3424 /* MoviesResponse.swift */,
 			);
 			path = Responses;
+			sourceTree = "<group>";
+		};
+		4247CEDB2770F06800C41CBD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4247CEDC2770F07500C41CBD /* ImageSaver.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +183,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				es,
 				Base,
 			);
 			mainGroup = 422598DB276F8A4E007B3424;
@@ -190,7 +206,7 @@
 			files = (
 				422598EF276F8A50007B3424 /* Preview Assets.xcassets in Resources */,
 				422598EC276F8A50007B3424 /* Assets.xcassets in Resources */,
-				422598FF276FA835007B3424 /* English.strings in Resources */,
+				422598FF276FA835007B3424 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,9 +220,11 @@
 				422598FC276FA402007B3424 /* MovieDetailView.swift in Sources */,
 				422598F8276F9504007B3424 /* MovieData.swift in Sources */,
 				422598FA276F9AAB007B3424 /* MovieRow.swift in Sources */,
+				4247CEDA2770E94300C41CBD /* FullScreenModalView.swift in Sources */,
 				4225990B276FE073007B3424 /* MoviesResponse.swift in Sources */,
 				422598EA276F8A4E007B3424 /* MoviesListView.swift in Sources */,
 				42259907276FC576007B3424 /* ViewModel.swift in Sources */,
+				4247CEDD2770F07500C41CBD /* ImageSaver.swift in Sources */,
 				422598E8276F8A4E007B3424 /* MovieAltenApp.swift in Sources */,
 				4225990D276FEF0E007B3424 /* Constants.swift in Sources */,
 			);
@@ -215,12 +233,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		42259901276FA835007B3424 /* English.strings */ = {
+		42259901276FA835007B3424 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				42259900276FA835007B3424 /* en */,
+				4247CEDF2771046F00C41CBD /* es */,
 			);
-			name = English.strings;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -230,6 +249,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -291,6 +311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -354,6 +375,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MovieAlten/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We want to save the filtered photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -384,6 +406,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MovieAlten/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We want to save the filtered photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

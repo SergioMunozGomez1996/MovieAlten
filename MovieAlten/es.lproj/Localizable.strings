@@ -1,0 +1,19 @@
+/* 
+  English.strings
+  MovieAlten
+
+  Created by Sergio Muñoz on 19/12/21.
+  
+*/
+
+"movies" = "Películas";
+"title" = "Título";
+"released" = "Estrenada";
+"runtime" = "Duración";
+"genre" = "Género";
+"plot" = "Argumento";
+"web" = "Web";
+"no_data" = "Sin Datos";
+"copy_to_clipboard" = "Copiar al portapapeles";
+"back" = "Atrás";
+"save" = "Guardar";

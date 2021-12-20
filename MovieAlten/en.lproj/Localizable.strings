@@ -15,3 +15,5 @@
 "web" = "Web";
 "no_data" = "No Data";
 "copy_to_clipboard" = "Copy to clipboard";
+"back" = "Back";
+"save" = "Save";
