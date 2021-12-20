@@ -8,56 +8,178 @@
 import SwiftUI
 
 struct MovieDetailView: View {
-    var movie : MovieData
     
+    @EnvironmentObject var viewModel : ViewModel
+    
+    var movieId : String
+
+    var movie : MovieData?
+    
+    enum StateEnum{
+        case loading
+        case showing
+        case error
+        case noData
+    }
+    
+    @State var stateView = StateEnum.loading
+
+        
     var body: some View {
-        ScrollView(){
-            VStack(alignment: .leading){
-                HStack (alignment: .top){
-                    AsyncImage(url: URL(string: movie.poster ?? "")) { image in
-                        image.resizable()
-                            .scaledToFit()
-                    } placeholder: {
-                        Color.red
+        ZStack {
+            switch stateView {
+            case .loading:
+                ProgressView()
+            case .showing:
+                ScrollView(){
+                    VStack(alignment: .leading){
+                        AsyncImage(url: URL(string:viewModel.movie?.poster ?? "")) { image in
+                            image.resizable()
+                                .scaledToFit()
+                        } placeholder: {
+                            Color.red
+                        }
+                        Spacer().frame(height: 3)
+                        
+                        Group{
+                            Text(LocalizedStringKey("title"))
+                                .font(.title2)
+                                .bold()
+                            Text(viewModel.movie?.title ?? "Title")
+                                .fixedSize(horizontal: false, vertical: true)
+                                .contextMenu {
+                                    Button(action: {
+                                        UIPasteboard.general.string = viewModel.movie?.plot
+                                    }) {
+                                        Text("copy_to_clipboard")
+                                        Image(systemName: "doc.on.doc")
+                                    }
+                                }
+                            Spacer().frame(height: 3)
+                        }
+                        
+                        Group{
+                            Text("released")
+                                .font(.title2)
+                                .bold()
+                            Text(viewModel.movie?.released ?? "Released")
+                                .fixedSize(horizontal: false, vertical: true)
+                                .contextMenu {
+                                    Button(action: {
+                                        UIPasteboard.general.string = viewModel.movie?.plot
+                                    }) {
+                                        Text("copy_to_clipboard")
+                                        Image(systemName: "doc.on.doc")
+                                    }
+                                }
+                            Spacer().frame(height: 3)
+                        }
+                        
+                        Group{
+                            Text("runtime")
+                                .font(.title2)
+                                .bold()
+                            Text(viewModel.movie?.runtime ?? "Runtime")
+                                .fixedSize(horizontal: false, vertical: true)
+                                .contextMenu {
+                                    Button(action: {
+                                        UIPasteboard.general.string = viewModel.movie?.plot
+                                    }) {
+                                        Text("copy_to_clipboard")
+                                        Image(systemName: "doc.on.doc")
+                                    }
+                                }
+                            Spacer().frame(height: 3)
+                        }
+                        
+                        Group {
+                            Text("genre")
+                                .font(.title2)
+                                .bold()
+                            Text(viewModel.movie?.genre ?? "Genre")
+                                .fixedSize(horizontal: false, vertical: true)
+                                .contextMenu {
+                                    Button(action: {
+                                        UIPasteboard.general.string = viewModel.movie?.plot
+                                    }) {
+                                        Text("copy_to_clipboard")
+                                        Image(systemName: "doc.on.doc")
+                                    }
+                                }
+                            Spacer().frame(height: 3)
+                        }
+                        
+                        Group{
+                            Text("plot")
+                                .font(.title2)
+                                .bold()
+                            Text(viewModel.movie?.plot ?? "")
+                                .fixedSize(horizontal: false, vertical: true)
+                                .contextMenu {
+                                    Button(action: {
+                                        UIPasteboard.general.string = viewModel.movie?.plot
+                                    }) {
+                                        Text("copy_to_clipboard")
+                                        Image(systemName: "doc.on.doc")
+                                    }
+                                }
+                            Spacer().frame(height: 3)
+                        }
+                        
+                        Group{
+                            Text("web")
+                                .font(.title2)
+                                .bold()
+                            Text(viewModel.movie?.web ?? "")
+                                .fixedSize(horizontal: false, vertical: true)
+                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 3, trailing: 0))
+                                .onTapGesture {
+                                    if !(viewModel.movie?.web?.isEmpty ?? true) && viewModel.movie?.web != "N/A"{
+                                        actionSheet(url: viewModel.movie?.web ?? "")
+                                    } else {
+                                        print("cant share")
+                                    }
+                                }
+                        }
+                        
+                        Spacer()
+                    }
+                    .padding()
+                }
+            case .error:
+                Text(viewModel.error)
+            case .noData:
+                Text("no_data")
+
+            }
+        }
+        .onAppear{
+            viewModel.getMovie(id: movieId){
+                if viewModel.error.isEmpty{
+                    if !viewModel.movies.isEmpty {
+                        self.stateView = .showing
+                    } else {
+                        self.stateView = .noData
                     }
                     
-                    VStack(alignment: .leading) {
-                        
-                        Text(LocalizedStringKey("title")).font(.title)
-                        Text(movie.title ?? "Title")
-                            .fixedSize(horizontal: false, vertical: true)
-                        
-                        Text("released").font(.title)
-                        Text(movie.released ?? "Released")
-                            .fixedSize(horizontal: false, vertical: true)
-                        
-                        Text("runtime").font(.title)
-                        Text(movie.runtime ?? "Runtime")
-                            .fixedSize(horizontal: false, vertical: true)
-                        
-                        Text("genre").font(.title)
-                        Text(movie.genre ?? "Genre")
-                            .fixedSize(horizontal: false, vertical: true)
-                        
-                    }
+                } else {
+                    self.stateView = .error
                 }
                 
-                Text("plot").font(.title)
-                Text(movie.plot ?? "")
-                
-                Text("web").font(.title)
-                Text(movie.web ?? "")
-                
-                Spacer()
             }
-            .padding()
         }
         
+    }
+    
+    func actionSheet(url: String) {
+        guard let urlShare = URL(string: url) else { return }
+        let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
     }
 }
 
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailView(movie: MovieData(title: "Harry Potter and the Deathly Hallows: Part 2", year: "2011", poster: "https://m.media-amazon.com/images/M/MV5BMGVmMWNiMDktYjQ0Mi00MWIxLTk0N2UtN2ZlYTdkN2IzNDNlXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg", released: "15 Jul 2011", runtime: "130 min", genre: "Adventure, Fantasy, Mystery", plot: "Harry, Ron, and Hermione search for Voldemort's remaining Horcruxes in their effort to destroy the Dark Lord as the final battle rages on at Hogwarts.", web: "Harry, Ron, and Hermione search for Voldemort's remaining Horcruxes in their effort to destroy the Dark Lord as the final battle rages on at Hogwarts."))
+        MovieDetailView(movieId: "tt1201607", movie: MovieData(title: "Harry Potter and the Deathly Hallows: Part 2", year: "2011", poster: "https://m.media-amazon.com/images/M/MV5BMGVmMWNiMDktYjQ0Mi00MWIxLTk0N2UtN2ZlYTdkN2IzNDNlXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg", released: "15 Jul 2011", runtime: "130 min", genre: "Adventure, Fantasy, Mystery", plot: "Harry, Ron, and Hermione search for Voldemort's remaining Horcruxes in their effort to destroy the Dark Lord as the final battle rages on at Hogwarts.", web: "Harry, Ron, and Hermione search for Voldemort's remaining Horcruxes in their effort to destroy the Dark Lord as the final battle rages on at Hogwarts."))
     }
 }

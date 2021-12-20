@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import SwiftUI
 struct MovieData: Identifiable, Decodable {
     let id = UUID()
+    var imdbID : String?
     var title : String?
     var year : String?
     var poster : String?
@@ -20,6 +20,7 @@ struct MovieData: Identifiable, Decodable {
  
     
     enum CodingKeys: String, CodingKey {
+        case imdbID = "imdbID"
         case title = "Title"
         case year = "Year"
         case poster = "Poster"
@@ -27,7 +28,7 @@ struct MovieData: Identifiable, Decodable {
         case runtime = "Runtime"
         case genre = "Genre"
         case plot = "Plot"
-        case web = "web"
+        case web = "Website"
     }
     
 //    func getId() -> Int {

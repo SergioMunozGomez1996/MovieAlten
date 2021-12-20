@@ -17,7 +17,7 @@ struct MovieRow: View {
             } placeholder: {
                 Color.red
             }
-            .frame(width: 40, height: 40).padding(10)
+            .frame(width: 50, height: 60).padding(10)
             
             VStack(alignment: .leading) {
                 Text(movie.title ?? "Title").font(.title)
