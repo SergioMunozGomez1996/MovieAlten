@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+//class that save a image into the gallery
 class ImageSaver: NSObject {
     func writeToPhotoAlbum(image: UIImage) {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)

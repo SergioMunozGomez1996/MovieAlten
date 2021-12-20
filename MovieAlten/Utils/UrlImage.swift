@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+//class that download a image from url
 class UrlImage: ObservableObject {
     @Published var dataIsLoaded: Bool = false
     @Published var image: UIImage? = nil

@@ -51,7 +51,7 @@ struct MovieDetailView: View {
                             Text(LocalizedStringKey("title"))
                                 .font(.title2)
                                 .bold()
-                            Text(viewModel.movie?.title ?? "Title")
+                            Text(viewModel.movie?.title ?? "no_data")
                                 .fixedSize(horizontal: false, vertical: true)
                                 .contextMenu {
                                     Button(action: {
@@ -68,7 +68,7 @@ struct MovieDetailView: View {
                             Text("released")
                                 .font(.title2)
                                 .bold()
-                            Text(viewModel.movie?.released ?? "Released")
+                            Text(viewModel.movie?.released ?? "no_data")
                                 .fixedSize(horizontal: false, vertical: true)
                                 .contextMenu {
                                     Button(action: {
@@ -85,7 +85,7 @@ struct MovieDetailView: View {
                             Text("runtime")
                                 .font(.title2)
                                 .bold()
-                            Text(viewModel.movie?.runtime ?? "Runtime")
+                            Text(viewModel.movie?.runtime ?? "no_data")
                                 .fixedSize(horizontal: false, vertical: true)
                                 .contextMenu {
                                     Button(action: {
@@ -102,7 +102,7 @@ struct MovieDetailView: View {
                             Text("genre")
                                 .font(.title2)
                                 .bold()
-                            Text(viewModel.movie?.genre ?? "Genre")
+                            Text(viewModel.movie?.genre ?? "no_data")
                                 .fixedSize(horizontal: false, vertical: true)
                                 .contextMenu {
                                     Button(action: {
@@ -119,7 +119,7 @@ struct MovieDetailView: View {
                             Text("plot")
                                 .font(.title2)
                                 .bold()
-                            Text(viewModel.movie?.plot ?? "")
+                            Text(viewModel.movie?.plot ?? "no_data")
                                 .fixedSize(horizontal: false, vertical: true)
                                 .contextMenu {
                                     Button(action: {
@@ -136,7 +136,7 @@ struct MovieDetailView: View {
                             Text("web")
                                 .font(.title2)
                                 .bold()
-                            Text(viewModel.movie?.web ?? "")
+                            Text(viewModel.movie?.web ?? "no_data")
                                 .fixedSize(horizontal: false, vertical: true)
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 3, trailing: 0))
                                 .onTapGesture {
