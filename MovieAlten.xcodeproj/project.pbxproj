@@ -21,6 +21,7 @@
 		4225990D276FEF0E007B3424 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4225990C276FEF0E007B3424 /* Constants.swift */; };
 		4247CEDA2770E94300C41CBD /* FullScreenModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247CED92770E94300C41CBD /* FullScreenModalView.swift */; };
 		4247CEDD2770F07500C41CBD /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247CEDC2770F07500C41CBD /* ImageSaver.swift */; };
+		4247CEE127710F8100C41CBD /* UrlImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247CEE027710F8000C41CBD /* UrlImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		4247CED92770E94300C41CBD /* FullScreenModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenModalView.swift; sourceTree = "<group>"; };
 		4247CEDC2770F07500C41CBD /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		4247CEDF2771046F00C41CBD /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4247CEE027710F8000C41CBD /* UrlImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				4247CEDC2770F07500C41CBD /* ImageSaver.swift */,
+				4247CEE027710F8000C41CBD /* UrlImage.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				4247CEDA2770E94300C41CBD /* FullScreenModalView.swift in Sources */,
 				4225990B276FE073007B3424 /* MoviesResponse.swift in Sources */,
 				422598EA276F8A4E007B3424 /* MoviesListView.swift in Sources */,
+				4247CEE127710F8100C41CBD /* UrlImage.swift in Sources */,
 				42259907276FC576007B3424 /* ViewModel.swift in Sources */,
 				4247CEDD2770F07500C41CBD /* ImageSaver.swift in Sources */,
 				422598E8276F8A4E007B3424 /* MovieAltenApp.swift in Sources */,

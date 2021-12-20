@@ -15,7 +15,7 @@ struct MovieRow: View {
             AsyncImage(url: URL(string: movie.poster ?? "")) { image in
                 image.resizable()
             } placeholder: {
-                Color.red
+                ProgressView()
             }
             .frame(width: 50, height: 60).padding(10)
             

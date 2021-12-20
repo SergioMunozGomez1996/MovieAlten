@@ -11,6 +11,9 @@ struct FullScreenModalView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State var imageURL : String
+    
+    @ObservedObject var image = UrlImage()
+
 
     var body: some View {
         ZStack {
@@ -24,29 +27,25 @@ struct FullScreenModalView: View {
                     Button("save") {
 
                             let imageSaver = ImageSaver()
-//                        imageSaver.writeToPhotoAlbum(image: image.)
+                        imageSaver.writeToPhotoAlbum(image: image.image ?? UIImage())
                     }
+                    .disabled(!image.dataIsLoaded)
                 }
                 .padding()
                 
-                AsyncImage(url: URL(string: imageURL )) { image in
-                    image.resizable()
+                if image.dataIsLoaded {
+                    Image(uiImage: image.image!)
+                        .resizable()
                         .scaledToFit()
-                    
-                } placeholder: {
-                    Color.red
                 }
 
             }
         }
+        .onAppear(perform: {
+            image.loadImage(urlString: imageURL)
+        })
     }
     
-//    func save(image : Image) {
-//        guard let processedImage = image else { return }
-//
-//        let imageSaver = ImageSaver()
-//        imageSaver.writeToPhotoAlbum(image: UIImage(named: processedImage))
-//    }
 }
 
 struct FullScreenModalView_Previews: PreviewProvider {
